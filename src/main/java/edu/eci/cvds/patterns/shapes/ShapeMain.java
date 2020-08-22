@@ -7,6 +7,7 @@ package edu.eci.cvds.patterns.shapes;
 
 public class ShapeMain {
     public static void main(String[] args) {
+        ShapeFactory factory=new ShapeFactory();
         if (args == null || args.length != 1) {
             System.err.println("Parameter of type RegularShapeType is required.");
             return;
@@ -14,7 +15,7 @@ public class ShapeMain {
         try {
 
             RegularShapeType type = RegularShapeType.valueOf(args[0]);
-            Shapes shape = ShapeFactory.create(type);
+            Shapes shape = factory.create(type);
             
             System.out.println(String.format("Successfully created a %s with %s sides.", type, shape.getNumberOfEdges()));
 
